@@ -4,25 +4,17 @@ import 'package:get/utils.dart';
 
 abstract mixin class StockPercentageDataProvider {
   int get currentPrice;
-
   int get yesterdayClosePrice;
 
-  double get todayPercentage =>
-      ((currentPrice - yesterdayClosePrice) / yesterdayClosePrice * 100).toPrecision(2);
+  double get todayPercentage => ((currentPrice - yesterdayClosePrice)/yesterdayClosePrice*100).toPrecision(2);
 
-  String get todayPercentageString => _isPlus ? '+$todayPercentage%' : '$todayPercentage%';
+  String get todayPercentageString => "$symbol$todayPercentage%";
 
-  bool get _isPlus => currentPrice > yesterdayClosePrice;
+  bool get isPlus => currentPrice > yesterdayClosePrice;
+  bool get isSame => currentPrice == yesterdayClosePrice;
+  bool get isMinus => currentPrice < yesterdayClosePrice;
 
-  bool get _isSame => currentPrice == yesterdayClosePrice;
+  String get symbol => isSame? "": isPlus? "+": "-";
 
-  Color getTodayPercentageColor(BuildContext context) {
-    if (_isSame) {
-      return context.appColors.dimmedText;
-    } else if (_isPlus) {
-      return context.appColors.plus;
-    } else {
-      return context.appColors.minus;
-    }
-  }
+  Color getPriceColor(BuildContext context) => isSame? context.appColors.lessImportant : isPlus? context.appColors.plus: context.appColors.minus;
 }

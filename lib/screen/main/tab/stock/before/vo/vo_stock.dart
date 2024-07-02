@@ -4,9 +4,9 @@ class Stock extends PopularStock {
   final String stockImagePath;
 
   Stock({
-    required this.stockImagePath,
+    required super.name,
     required super.yesterdayClosePrice,
     required super.currentPrice,
-    required super.stockName,
+    required this.stockImagePath,
   });
 }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 export 'package:fast_app_base/common/constant/app_colors.dart';
 
 typedef ColorProvider = Color Function();
-
+// 값이 바뀌었으므로 확인
 abstract class AbstractThemeColors {
   const AbstractThemeColors();
 
@@ -16,7 +16,7 @@ abstract class AbstractThemeColors {
 
   Color get iconButton => const Color.fromARGB(255, 255, 255, 255);
 
-  Color get iconButtonInactivate => const Color.fromARGB(255, 113, 113, 113);
+  Color get iconButtonInactivate => const Color.fromARGB(255, 110, 110, 110);
 
   Color get inActivate => const Color.fromARGB(255, 79, 79, 79);
 

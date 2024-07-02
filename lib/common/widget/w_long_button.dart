@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class LongButton extends StatelessWidget {
   final String title;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
-  const LongButton({super.key, required this.title, required this.onTap});
+  const LongButton({super.key, required this.title, this.onTap});
 
   @override
   Widget build(BuildContext context) {

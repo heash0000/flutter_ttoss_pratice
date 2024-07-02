@@ -20,7 +20,7 @@ class _InterestStockListState extends State<InterestStockList> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           height20,
-          ...myInterestStocks.map((element) => StockItem(element)).toList(),
+          ...myInterestStocks.map((e) => StockItem(e)).toList(),
         ],
       ),
     );
