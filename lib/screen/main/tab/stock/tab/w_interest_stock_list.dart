@@ -1,7 +1,8 @@
 import 'package:fast_app_base/common/common.dart';
+import 'package:fast_app_base/screen/main/tab/stock/tab/stocks_dummy.dart';
+import 'package:fast_app_base/screen/main/tab/stock/vo/vo_stock.dart';
 import 'package:flutter/material.dart';
 
-import 'dummy_interest_stocks.dart';
 import 'w_stock_item.dart';
 
 class InterestStockList extends StatefulWidget {
@@ -20,7 +21,7 @@ class _InterestStockListState extends State<InterestStockList> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           height20,
-          ...myInterestStocks.map((element) => StockItem(element)).toList(),
+          ...myInterestStocks.map((element) => StockItem(element as Stock)).toList(),
         ],
       ),
     );

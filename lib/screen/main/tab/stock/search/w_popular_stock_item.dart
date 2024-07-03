@@ -1,3 +1,4 @@
+import 'package:fast_app_base/common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:fast_app_base/screen/main/tab/stock/vo/vo_popular_stock.dart';
 
@@ -14,8 +15,8 @@ class PopularStockItem extends StatelessWidget {
           width: 40,
           child: number.text.make(), 
         ),
-        width30, 
-        stock.stockName.text.make(), 
+        width30,
+        stock.name.text.make(),
         emptyExpanded, 
         stock.todayPercentageString.text.color(stock.getPriceColor(context)).make()
       ],

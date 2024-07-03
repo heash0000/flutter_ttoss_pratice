@@ -1,11 +1,11 @@
 import 'package:get/get_rx/get_rx.dart';
 import 'package:get/get.dart';
+import '../../../../../common/util/local_json.dart';
 import '../vo/vo_simple_stock.dart';
 
 // import 'package:get/get_state_manager/get_state_manager.dart';
 
 // import '../../../../../common/common.dart';
-// import '../../../../../common/util/local_json.dart';
 
 abstract mixin class SearchStockDataProvider {
   late final searchData = Get.find<SearchStockData>();
@@ -36,10 +36,14 @@ class SearchStockData extends GetxController {
       autoCompleteList.clear();
       return;
     }
-    autoCompleteList.value = stocks.where((element) => element.stockName.contains(keyword)).toList();
+    autoCompleteList.value = stocks.where((element) => element.name.contains(keyword)).toList();
   }
 
-  // void addSearchHistory(String stockName) {
-  //   searchHistoryList.insert(0, stockName);
-  // }
+  void addSearchHistory(SimpleStock stock) {
+    searchHistoryList.add(stock.name);
+  }
+
+  void removeHistory(String stockName) {
+    searchHistoryList.remove(stockName);
+  }
 }

@@ -1,5 +1,7 @@
-import 'package:fast_app_base/screen/main/tab/stock/search/stock_search_data.dart';
-import 'package:fast_app_base/screen/main/tab/stock/search/w_search_history_item.dart';
+import 'package:fast_app_base/common/common.dart';
+import 'package:fast_app_base/screen/main/tab/stock/search/s_stock_detail.dart';
+import 'package:fast_app_base/screen/main/tab/stock/search/search_stock_data.dart';
+import 'package:fast_app_base/screen/main/tab/stock/search/w_search_history_stock_list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,28 +12,55 @@ class SearchHistoryStockList extends StatefulWidget {
   State<SearchHistoryStockList> createState() => _SearchHistoryStockListState();
 }
 
-class _SearchHistoryStockListState extends State<SearchHistoryStockList> {
-  late final searchHistoryData = Get.find<SearchStockData>();
+class _SearchHistoryStockListState extends State<SearchHistoryStockList>
+    with SearchStockDataProvider {
+  // late final searchHistoryData = Get.find<SearchStockData>();
 
-  get historyList => searchHistoryData.SearchHistoryStockList;
+  // get historyList => searchHistoryData.SearchHistoryStockList;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 60,
-        child: ListView.builder(
+      width: double.infinity,
+      height: 65,
+      child: Obx(
+        () => ListView.builder(
+          padding: const EdgeInsets.only(top: 5),
           scrollDirection: Axis.horizontal,
-          itemCount: historyList.length,
+          itemCount: searchData.searchHistoryList.length,
           itemBuilder: (context, index) {
-            return SearchHistoryItem(
-              onTapDelete: () {
-                setState(() {
-                  historyList.removeAt(index);
-                });
-              },
-              text: historyList[index],
+            final stockName = searchData.searchHistoryList[index];
+            return Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(right: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Row(
+                    children: [
+                      Tap(
+                          onTap: () {
+                            Nav.push(StockDetailScreen(stockName));
+                          },
+                          child: stockName.text.make()),
+                      Tap(
+                        onTap: () {
+                          searchData.removeHistory(stockName);
+                        },
+                        child: Icon(Icons.close),
+                      ),
+                    ],
+                  )
+                      .box
+                      .withRounded(value: 6)
+                      .color(context.appColors.roundedLayoutBackground)
+                      .p8
+                      .make(),
+                ),
+              ],
             );
           },
-        ));
+        ),
+      ),
+    );
   }
 }

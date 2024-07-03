@@ -1,11 +1,12 @@
 import 'package:fast_app_base/common/common.dart';
 import 'package:fast_app_base/common/widget/w_image_button.dart';
-import 'package:fast_app_base/screen/main/tab/stock/search/s_stock_search.dart';
+import 'package:fast_app_base/screen/main/tab/stock/search/s_search_stock.dart';
 import 'package:fast_app_base/screen/main/tab/stock/tab/f_my_stock.dart';
 import 'package:fast_app_base/screen/main/tab/stock/tab/f_todays_discovery.dart';
 import 'package:flutter/material.dart';
 
 import 'setting/s_setting.dart';
+
 
 class StockFragment extends StatefulWidget {
   const StockFragment({Key? key}) : super(key: key);
@@ -70,7 +71,7 @@ class _StockFragmentState extends State<StockFragment> with SingleTickerProvider
         width10,
         3919.29.toComma().text.size(13).bold.color(context.appColors.plus).make(),
       ],
-    ).pOnly(left: 20);
+    ).pOnly(left: 20),
   );
 
   Widget get tabBar => Container(
@@ -95,6 +96,6 @@ class _StockFragmentState extends State<StockFragment> with SingleTickerProvider
         ),
         const Line(),
       ],
-    );
+    ),
   );
 }
