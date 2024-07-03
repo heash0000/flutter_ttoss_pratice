@@ -2,9 +2,9 @@ import 'package:fast_app_base/common/common.dart';
 import 'package:flutter/material.dart';
 
 class StockDetailScreen extends StatelessWidget {
-  final String name;
+  final String stockName;
 
-const StockDetailScreen(this.name, {super.key});
+const StockDetailScreen({super.key, required this.stockName});
   // const StockDetailScreen({
   //   required this.name,
   //   Key? key,
@@ -14,7 +14,7 @@ const StockDetailScreen(this.name, {super.key});
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(name),
+        title: Text(stockName),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),

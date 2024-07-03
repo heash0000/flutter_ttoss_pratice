@@ -11,15 +11,16 @@ class PopularStockItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(
-          width: 40,
-          child: number.text.make(), 
-        ),
-        width30,
-        stock.name.text.make(),
+        (number + 1).text.bold.white.size(16).make(),
+        // SizedBox(
+        //   width: 40,
+        //   child: number.text.make(),
+        // ),
+        width20,
+        stock.name.text.bold.white.size(16).make(),
         emptyExpanded, 
-        stock.todayPercentageString.text.color(stock.getPriceColor(context)).make()
+        stock.todayPercentageString.text.color(stock.getPriceColor(context)).size(16).make()
       ],
-    ).pSymmetric(v:25);
+    ).pSymmetric(v:20, h:20);
   }
 }
