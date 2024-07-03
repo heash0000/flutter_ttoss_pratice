@@ -27,19 +27,6 @@ class _PopularSearchStockListState extends State<PopularSearchStockList> {
         ...popularStockList
           .mapIndexed((element, index) => PopularStockItem(stock: element, number: index+1))
             .toList(),
-            // .mapIndexed((element, index) => Row(
-            //       children: [
-            //         (index + 1).text.bold.white.size(16).make(),
-            //         width20,
-            //         element.name.text.bold.white.size(16).make(),
-            //         emptyExpanded,
-            //         element.todayPercentageString.text
-            //             .color(element.getTodayPercentageColor(context))
-            //             .size(16)
-            //             .make(),
-            //       ],
-            //     ).pSymmetric(h: 20, v: 20))
-            // .toList()
       ],
     ).pSymmetric(h: 20);
   }
